@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.16/dist/tailwind.min.css">
+    {% block css %}{% endblock css %}
+    <title>WebTool | {% block title %}{% endblock title %}</title>
+
+</head>
+<body>
+    
+    <header class= "text-gray-400 bg-gray-900 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+           <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+              <span class="ml-3 text-xl">
+           <a href="{% url 'the_main_home' %}">
+           <svg width="150" height="40" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <rect x="0" y="0" width="200" height="50" rx="5" fill="#111827"/>
+           <text x="25" y="32" font-family="Helvetica Neue" font-size="30" fill="white">WebTool </text>
+           <circle cx="165" cy="25" r="12" fill="#F2F2F2"/>
+           <path d="M 158 25 L 172 25" stroke="#111827" stroke-width="2"/>
+           <path d="M 165 18 L 165 32" stroke="#111827" stroke-width="2"/>
+           <path d="M 161.5 21.5 L 168.5 28.5" stroke="#111827" stroke-width="2"/>
+           <path d="M 168.5 21.5 L 161.5 28.5" stroke="#111827" stroke-width="2"/>
+           </svg></a>
+           </span>
+           </a>
+           <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+              <a href="{% url 'the_main_home' %}" class="mr-5 hover:text-white">Home</a>
+              <a href="{% url 'its_ashiq' %}" class="mr-5 hover:text-white">Developer</a>
+           </nav>
+           <hr>
+        </div>
+    </header>
+
+
+
+    <main>
+
+        {% block content %}
+        
+        {% endblock %}
+        
+    </main>
+
+
+<footer class="text-gray-400 bg-gray-900 body-font">
+            
+    <div class="bg-gray-800 bg-opacity-75">
+        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+            <span class="ml-3 text-xl">EMHASH</span>
+            </a>
+            <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">
+                <a href="https://twitter.com/emhash__" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@E.H.Ashiq</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                {% comment %} Facebook {% endcomment %}
+                <a href = "https://www.facebook.com/E.H.Ashiq/" class="text-gray-400">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+                </a>
+                {% comment %} twitter {% endcomment %}
+                <a href="https://twitter.com/emhash__" class="ml-3 text-gray-400">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+                </a>
+                {% comment %} LinkedIn {% endcomment %}
+                <a href="https://www.linkedin.com/in/emhash/" class="ml-3 text-gray-400">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+                </a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+
+
+
+{% block js %}
+
+{% endblock js %}
+<script src="https://kit.fontawesome.com/fa9f3d7c05.js" crossorigin = "anonymous">  </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}BMI{% endblock title %}
+
+{% block css %} 
+<link rel="stylesheet" type="text/css" href=" {% static 'css/bmi.css' %} ">
+<link rel="icon" type="image/x-icon" href="{% static 'image/favicon.ico' %}">
+
+{% endblock css %}
+
+{% block content %}
+
+
+
+<div class="wrapper">
+  <div class="container mx-auto mt-20">
+
+
+    
+    <b style = "color : red ; font-size : 30px;" >  BMI Calculator </b>
+	<form >
+      <label for="age">Age:</label>
+      <input type="range" id="age" name="age" min="1" max="100" value="18" onchange="updateAge(this.value)">
+      <span id="age-value">18</span>
+      
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" min="1" max="300" placeholder="Enter height in cm" required>
+      
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" min="1" max="500" placeholder="Enter weight in kg" required>
+      
+      <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+    </form>
+    <div id="result"></div>
+	
+  </div>
+</div>
+
+{% endblock content %}
+
+
+
+{% block js %}
+
+    
+<script>
+    function updateAge(age) {
+    document.getElementById("age-value").textContent = age;
+  }
+  
+  function calculateBMI() {
+    // Get input values
+    var age = parseInt(document.getElementById("age").value);
+    var height = parseInt(document.getElementById("height").value);
+    var weight = parseInt(document.getElementById("weight").value);
+  
+    // Calculate BMI
+    var bmi = weight / ((height / 100) ** 2);
+  
+    // Display result
+    var resultDiv = document.getElementById("result");
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = "<h2>Result</h2><p>Your BMI is: " + bmi.toFixed(2) + "</p>";
+  
+    // Check age range
+    if (age < 18) {
+      resultDiv.innerHTML += "<p>You are under 18 years old, BMI may not be accurate for you.</p>";
+    } else if (age > 60) {
+      resultDiv.innerHTML += "<p>You are over 60 years old, BMI may not be accurate for you.</p>";
+    }
+  
+    // Reset form
+    document.getElementById("bmi-form").reset();
+  }
+  
+    
+</script>
+
+{% endblock js %}
+
+
+

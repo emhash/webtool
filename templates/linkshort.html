@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Link Shortener{% endblock title %}
+
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/linkshort.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="container mx-auto mt-20">
+    <h1>URL Shortener</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <label for="long-url">Enter a URL:</label>
+      <input type="url" id="long-url" name="long_url" placeholder="https://www.example.com">
+      <button type="submit">Shorten</button>
+    </form>
+    {% if short_url %}
+      <div class="result">
+        <label for="short-url">Shortened URL:</label>
+        <input type="text" id="short-url" value="{{ short_url }}" readonly>
+        <button type="button" onclick="copyToClipboard()">Copy</button>
+      </div>
+    {% else %}
+      <div class="result">
+        <label for="short-url">Shortened URL:</label>
+        <input type="text" id="short-url" value="" readonly>
+        <button type="button" onclick="copyToClipboard()">Copy</button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/ls.js' %}"></script>
+{% endblock js %}
