@@ -1,12 +1,9 @@
 from pathlib import Path
 import os
-import django_heroku
-django_heroku.settings(locals())
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TAMPLATE_DIR = os.path.join(BASE_DIR , 'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR , 'templates')
 STATIC_DIR = os.path.join(BASE_DIR , 'static')
 
 SECRET_KEY = "lkadgjfayoewffesdfhiufphaeiuphfarysssfapiehrfushdakjfdalkfhdjl"
@@ -14,9 +11,7 @@ SECRET_KEY = "lkadgjfayoewffesdfhiufphaeiuphfarysssfapiehrfushdakjfdalkfhdjl"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['webtool-ooee.onrender.com', '*']
 
 # Application definition
 
@@ -49,7 +44,7 @@ ROOT_URLCONF = 'webtool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TAMPLATE_DIR],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
