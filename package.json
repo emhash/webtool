@@ -1,21 +1,13 @@
 {
     "name": "webtool",
     "version": "1.0.0",
-    "description": "",
+    "description": "My Django App",
     "scripts": {
-      "build": "echo \"No build specified\" && exit 1",
-      "test": "echo \"No test specified\" && exit 1",
-      "start": "node index.js"
+      "start": "python manage.py runserver",
+      "build": "echo 'No build step defined'"
     },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/emhash/webtool.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/emhash/webtool/issues"
-    },
-    "homepage": "https://github.com/emhash/webtool#readme"
+    "dependencies": {
+      "django": ">=3.2.19"
+    }
   }
   
