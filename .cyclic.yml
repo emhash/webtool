@@ -1,5 +1,0 @@
-build:
-  steps:
-    - run: pip install -r requirements.txt
-run:
-  command: gunicorn myproject.wsgi:application --bind 0.0.0.0:$PORT
